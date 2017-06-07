@@ -1,0 +1,91 @@
+Anaconda & Anaconda Cloud
+
+## Para uso de "Anaconda" se usa "conda"
+
+## Abrir terminal "Sin ser ROOT"
+
+
+conda info ## Informa las caracteristicas de Conda
+
+conda update conda ## Actualiza el paquete conda y el "ambiente" 
+
+conda update anaconda ## Actualiza los paquetes que se han instalado con "conda"
+
+conda info -e ## Información sobre los ambientes (-e = "enviroment" : Espacio de trabajo)
+
+#### Crear TÚ ambiente chido-liro
+
+conda create -n ejemplo1 ## (-n = "name" : Nombre de tu espacio de trabajo)
+
+#### Por default esta "root", activar tu ambiente
+
+source activate ejemplo1 ## (linux, OS X)
+activate ejemplo1 ## (Windows)
+
+#### Borrar un enviroment
+conda remove -n ejemplo1 --all
+
+#### Conocer la versión de Python
+conda search -f python
+
+#### Ver que está dentro de tu ambiente
+conda list
+
+#### Instalar paquetes en tu ambiente
+conda install spyder pandas scipy matplotlib jupyter anaconda-navigator openpyxl xlsxwriter pip openpyxl scikit-learn bokeh numba scipy sympy h2o h2o-py statsmodels numpy rstudio seaborn xlrd
+
+#### Actualizar paquete especifico
+conda update spyder pandas scipy matplotlib jupyter anaconda-navigator openpyxl xlsxwriter pip openpyxl scikit-learn
+
+
+#### Instalar "R" en Anaconda
+conda install -c r r-essentials
+
+## Actualizar
+conda update -c r r-essentials
+
+#### Para instalar "plotly"
+conda install pip
+pip install --upgrade pip
+
+pip install plotly
+pip install plotly --upgrade ## Actualizar
+
+#### Instalar desde internet
+conda install -c conda-forge curl
+
+
+######## Anaconda Cloud ###### Crear Cuenta ##########
+
+#### Descargar cliente de Anaconda
+
+conda install anaconda-client
+
+#### Tus datos (Usuario = Sivlemx)(contraseña)
+
+anaconda login
+
+#### Guardar tus cosas en la nube de Anaconda Cloud
+
+conda env export -n javier -f javier.yml
+conda env upload -f javier.yml
+
+##### Descargar tus cositas de la nube
+
+conda env create Sivlemx/javier
+source activate javier
+
+https://anaconda.org/sivlemx/javier
+
+token = Si-11866d30-04fa-4488-aa99-41c36f19baaa
+
+
+
+
+
+
+
+
+
+
+
