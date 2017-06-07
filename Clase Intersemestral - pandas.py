@@ -79,13 +79,14 @@ usuarios = pd.DataFrame(clase)
 print(usuarios)
 
 ## 2da Forma
+nomb = ['Sutano', 'Perengano', 'Fulanita', 'Sutanita']
 seme = ['cuarto', 'cuarto', 'sexto', 'sexto']
 sexo = ['hombre', 'hombre', 'mujer', 'mujer']
 edad = [21, 23, 21, 24]
 esta = [1.60, 1.65, 1.50, 1.75]
 
-lista_etiquetas = ['Semestre', 'Sexo', 'Edad', 'Estatura']
-lista_columnas = [seme, sexo, edad, esta]
+lista_etiquetas = ['Nombre', 'Semestre', 'Sexo', 'Edad', 'Estatura']
+lista_columnas = [nomb, seme, sexo, edad, esta]
 
 comprimido = list(zip(lista_etiquetas, lista_columnas))
 print(comprimido)
@@ -96,7 +97,7 @@ usuarios = pd.DataFrame(clase)
 print(usuarios)
 
 ## Crear nueva columna
-usuarios['Universidad'] = 'UNAM' 
+usuarios['Universidad'] = ['UNAM', 'UVM', 'UNAM', 'De la Vida'] 
 print(usuarios)
 
 peso = [70, 80, 65, 55]
