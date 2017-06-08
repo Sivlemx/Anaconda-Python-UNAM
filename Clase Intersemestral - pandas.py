@@ -113,7 +113,16 @@ usuarios.Sexo = usuarios.Sexo.astype('category')
 
 usuarios.info()
 
+imc = usuarios['Peso']/usuarios['Estatura']**2
+
+usuarios['IMC'] = ('%.2f' % round(imc, 2))
+
+
+usuarios['IMC'] = ('{0:.2f}'.format(imc))
+
 usuarios['IMC'] = usuarios['Peso']/usuarios['Estatura']**2
+
+usuarios['IMC'] = ('{0:.2f}'.format(usuarios[['IMC']]))
 
 usuarios.info()
 
@@ -128,6 +137,29 @@ usuarios.info()
 #        >40.00 -- Obeso: Tipo III
 
 import numpy as np
+
+clase_imc = ['Infrapeso', 'Normal', 'Sobrepeso', 'Obeso']
+
+for imc in usuarios['IMC']:
+    imc < 18.49
+    usuarios['Clase IMC'] = clase_imc[0]
+    
+
+
+
+
+for imc in usuarios['IMC']:
+    if imc <= 17:
+        usuarios['Clase IMC'] = 'Infrapeso'
+    elif imc == range(17, 25, 1):
+        usuarios['Clase IMC'] = 'Normal'
+    elif imc == range(25, 30, 1):
+        usuarios['Clase IMC'] = 'Sobrepeso'
+    elif imc >= 30:
+        usuarios['Clase IMC'] = 'Obeso'
+    else:
+        print('No aplica')
+
 
 while usuarios.loc[:, 'IMC'] < np.arange(16, 18.50, 0.000001):
     usuarios['IMC Clas'] = 'Infrapeso'
