@@ -113,18 +113,11 @@ usuarios.Sexo = usuarios.Sexo.astype('category')
 
 usuarios.info()
 
-imc = usuarios['Peso']/usuarios['Estatura']**2
-
-usuarios['IMC'] = ('%.2f' % round(imc, 2))
-
-
-usuarios['IMC'] = ('{0:.2f}'.format(imc))
-
 usuarios['IMC'] = usuarios['Peso']/usuarios['Estatura']**2
 
-usuarios['IMC'] = ('{0:.2f}'.format(usuarios[['IMC']]))
 
-usuarios.info()
+
+
 
 ## Nueva columna de Clasificación de Índice de Masa Corporal
 #        <16.00 -- Infrapeso: Delgadez Severa
