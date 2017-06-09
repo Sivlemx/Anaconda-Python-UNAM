@@ -105,7 +105,7 @@ usuarios['Peso'] = peso
 print(usuarios)
 
 ## Colocar Índice
-usuarios.index = ['A', 'B', 'C', 'D']
+usuarios.index = [1, 2, 3, 4]
 print(usuarios)
 
 ## Cambiar a propiedad de categoría las categorías
