@@ -4,18 +4,22 @@ Anaconda & Anaconda Cloud
 
 ## Abrir terminal "Sin ser ROOT"
 
+## Informa las caracteristicas de Conda
+conda info 
 
-conda info ## Informa las caracteristicas de Conda
+## Actualiza el paquete conda y el "ambiente" 
+conda update conda 
 
-conda update conda ## Actualiza el paquete conda y el "ambiente" 
+## Actualiza los paquetes que se han instalado con "conda"
+conda update anaconda 
 
-conda update anaconda ## Actualiza los paquetes que se han instalado con "conda"
-
-conda info -e ## Información sobre los ambientes (-e = "enviroment" : Espacio de trabajo)
+## Información sobre los ambientes (-e = "enviroment" : Espacio de trabajo)
+conda info -e 
 
 #### Crear TÚ ambiente chido-liro
 
-conda create -n ejemplo1 ## (-n = "name" : Nombre de tu espacio de trabajo)
+## (-n = "name" : Nombre de tu espacio de trabajo)
+conda create -n ejemplo1 
 
 #### Por default esta "root", activar tu ambiente
 
@@ -76,8 +80,6 @@ conda env create Sivlemx/javier
 source activate javier
 
 https://anaconda.org/sivlemx/javier
-
-token = Si-11866d30-04fa-4488-aa99-41c36f19baaa
 
 
 
