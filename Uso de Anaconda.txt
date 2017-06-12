@@ -9,6 +9,7 @@ conda info
 
 ## Actualiza el paquete conda y el "ambiente" 
 conda update conda 
+conda update --all
 
 ## Actualiza los paquetes que se han instalado con "conda"
 conda update anaconda 
