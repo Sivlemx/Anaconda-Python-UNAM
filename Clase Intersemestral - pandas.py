@@ -96,7 +96,7 @@ clase = dict(comprimido)
 usuarios = pd.DataFrame(clase)
 print(usuarios)
 
-## Crear nueva columna
+## Crear nueva(s) columna(s)
 usuarios['Universidad'] = ['UNAM', 'UVM', 'UNAM', 'De la Vida'] 
 print(usuarios)
 
@@ -104,20 +104,19 @@ peso = [70, 80, 65, 55]
 usuarios['Peso'] = peso
 print(usuarios)
 
+usuarios['Deporte'] = ['Correr', 'Nadar', 'Trotar', 'Brincar']
+
 ## Colocar Índice
 usuarios.index = [1, 2, 3, 4]
 print(usuarios)
 
 ## Cambiar a propiedad de categoría las categorías
 usuarios.Sexo = usuarios.Sexo.astype('category')
+usuarios.Deporte = usuarios.Deporte.astype('category')
 
 usuarios.info()
 
 usuarios['IMC'] = usuarios['Peso']/usuarios['Estatura']**2
-
-
-
-
 
 ## Nueva columna de Clasificación de Índice de Masa Corporal
 #        <16.00 -- Infrapeso: Delgadez Severa
@@ -130,6 +129,25 @@ usuarios['IMC'] = usuarios['Peso']/usuarios['Estatura']**2
 #        >40.00 -- Obeso: Tipo III
 
 import numpy as np
+
+clase_imc = []
+
+for imc in np.array(usuarios['IMC']):
+    print(imc)
+
+
+
+for imc in np.array(usuarios['IMC']):
+    if imc <= np.arange(16, 18.50, 0.000001):
+        usuarios['Categoría IMC'] = 'Infrapeso'
+    print(usuarios)
+    
+
+usuarios['IMC'] is np.arange(16, 18.50, 0.000001)
+
+
+
+
 
 clase_imc = ['Infrapeso', 'Normal', 'Sobrepeso', 'Obeso']
 
