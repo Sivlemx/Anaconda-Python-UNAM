@@ -58,6 +58,17 @@ print(
           tiene tablas dínamicas.
         
       """)
+    
+print(
+      """
+      ¿Qué es Numpy?
+          --> Librería para arreglar números.
+          --> Maneja diferentes tipos de datos.
+          --> Cambia, crea, adjunta y elimina.
+          --> Necesario para Data Science
+              --> Operaciones matematicas sobre lo que existe.
+              --> Es rápido y simple de usar.
+              """)
 
 ##########################################################################################
 
@@ -130,108 +141,24 @@ usuarios['IMC'] = usuarios['Peso']/usuarios['Estatura']**2
 
 import numpy as np
 
-clase_imc = []
+## Operadores Booleanos
+usuarios['IMC'] < 18.50
+np.logical_and(usuarios['IMC'] > 18.50, usuarios['IMC'] < 24.99)
+np.logical_and(usuarios['IMC'] > 25., usuarios['IMC'] < 29.99)
+usuarios['IMC'] > 30.
 
-for imc in np.array(usuarios['IMC']):
-    print(imc)
+## Filtar en toda la base de datos
+usuarios[usuarios['IMC'] < 18.50]
+usuarios[np.logical_and(usuarios['IMC'] > 18.50, usuarios['IMC'] < 24.99)]
+usuarios[np.logical_and(usuarios['IMC'] > 25., usuarios['IMC'] < 29.99)]
+usuarios[usuarios['IMC'] > 30.]
 
+cat_imc = {'Infrapeso':usuarios['IMC'] < 18.50,
+           'Normal':np.logical_and(usuarios['IMC'] > 18.50, usuarios['IMC'] < 24.99),
+           'Sobrepeso':np.logical_and(usuarios['IMC'] > 25., usuarios['IMC'] < 29.99),
+           'Obeso':usuarios['IMC'] > 30.}
 
-
-for imc in np.array(usuarios['IMC']):
-    if imc <= np.arange(16, 18.50, 0.000001):
-        usuarios['Categoría IMC'] = 'Infrapeso'
-    print(usuarios)
-    
-
-usuarios['IMC'] is np.arange(16, 18.50, 0.000001)
-
-
-
-
-
-clase_imc = ['Infrapeso', 'Normal', 'Sobrepeso', 'Obeso']
-
-for imc in usuarios['IMC']:
-    imc < 18.49
-    usuarios['Clase IMC'] = clase_imc[0]
-    
-
-
-
-
-for imc in usuarios['IMC']:
-    if imc <= 17:
-        usuarios['Clase IMC'] = 'Infrapeso'
-    elif imc == range(17, 25, 1):
-        usuarios['Clase IMC'] = 'Normal'
-    elif imc == range(25, 30, 1):
-        usuarios['Clase IMC'] = 'Sobrepeso'
-    elif imc >= 30:
-        usuarios['Clase IMC'] = 'Obeso'
-    else:
-        print('No aplica')
-
-
-while usuarios.loc[:, 'IMC'] < np.arange(16, 18.50, 0.000001):
-    usuarios['IMC Clas'] = 'Infrapeso'
-    print(usuarios)
-
-infrapeso = np.arange(16, 18.50, 0.000001)
-
-for imc in usuarios.loc[:, 'IMC']:
-    infrapeso == imc
-    print(imc)
-
-
-
-
-
-infrapeso = np.arange(16, 18.50, 0.000001)
-
-for infrapeso in usuarios.loc[:, 'IMC']:
-    print('bajo de peso')
-    break
-
-
-for imc in usuarios['IMC']:
-    for i in np.arange(16, 18.50, 0.000001):
-        print(i)
-        break
-    #if imc <= np.arange(16, 18.50):
-        #print('infrapeso')
-        #usuarios['IMC Clas'] = 'Infrapeso'
-    #usuarios['IMC Clas'] = np.arange(16, 18.50, 0.000001)
-    print(imc)
-
-if usuarios['IMC'] <= np.arange(16, 18.50, 0.000001):
-        usuarios['IMC Clas'] = 'Infrapeso'
-    elif usuarios['IMC'] <= np.arange(18.50, 24.99, 0.000001):
-        usuarios['IMC Clas'] = 'Normal'
-    elif usuarios['IMC'] <= np.arange(24.99, 29.99, 0.000001):
-        usuarios['IMC Clas'] = 'Sobrepeso'
-    elif usuarios['IMC'] <= np.arange(29.99, 40, 0.000001):
-        usuarios['IMC Clas'] = 'Obeso'
-    else:
-        usuarios['IMC Clas'] == np.nan
-
-
-
-
-for imc in usuarios['IMC']:
-    if usuarios['IMC'] <= np.arange(16, 18.50, 0.01):
-        usuarios['IMC Clas'] = 'Infrapeso'
-    elif usuarios['IMC'] <= np.arange(18.50, 24.99, 0.000001):
-        usuarios['IMC Clas'] = 'Normal'
-    elif usuarios['IMC'] <= np.arange(24.99, 29.99, 0.000001):
-        usuarios['IMC Clas'] = 'Sobrepeso'
-    elif usuarios['IMC'] <= np.arange(29.99, 40, 0.000001):
-        usuarios['IMC Clas'] = 'Obeso'
-    else:
-        usuarios['IMC Clas'] == np.nan
-
-
-
-
+usuarios = usuarios.assign(Categoría_IMC = cat_imc)
 
 
 ###########################################################################################
@@ -240,8 +167,7 @@ for imc in usuarios['IMC']:
 #### Base de datos "iris" ############################################################
 from urllib.request import urlretrieve
 
-url = 'https://raw.githubusercontent.com/Sivlemx/Anaconda-UNAM/master/iris.csv'
-
+url = 'https://github.com/Sivlemx/Anaconda-Python-UNAM'
 urlretrieve(url, 'iris.csv')
 iris_csv = 'iris.csv'
 print(iris_csv)
@@ -251,7 +177,7 @@ df_csv = pd.read_csv(iris_csv, sep=',')
 print(df_csv)
 print(type(df_csv))
 
-url = 'https://github.com/Sivlemx/Anaconda-UNAM/raw/master/iris.xlsx'
+url = 'https://github.com/Sivlemx/Anaconda-Python-UNAM'
 urlretrieve(url, 'iris.xlsx')
 iris_xlsx = 'iris.xlsx'
 print(iris_xlsx)
