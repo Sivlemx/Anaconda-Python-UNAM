@@ -1,4 +1,26 @@
-# Clase 
+# Python Zen
+print("""
+    Bello es mejor que feo.
+    Explícito es mejor que implícito.
+    Simple es mejor que complejo.
+    Complejo es mejor que complicado.
+    Plano es mejor que anidado.
+    Disperso es mejor que denso.
+    La legibilidad cuenta.
+    Los casos especiales no son tan especiales como para quebrantar las reglas.
+    Aunque lo práctico gana a la pureza.
+    Los errores nunca deberían dejarse pasar silenciosamente.
+    A menos que hayan sido silenciados explícitamente.
+    Frente a la ambigüedad, rechaza la tentación de adivinar.
+    Debería haber una -y preferiblemente sólo una- manera obvia de hacerlo.
+    Aunque esa manera puede no ser obvia al principio a menos que usted sea holandés.
+    Ahora es mejor que nunca.
+    Aunque nunca es a menudo mejor que ya mismo.
+    Si la implementación es difícil de explicar, es una mala idea.
+    Si la implementación es fácil de explicar, puede que sea una buena idea.
+    Los espacios de nombres son una gran idea ¡Hagamos más de esas cosas!
+""")
+
 print("""
 ¿Por qué usar Python como herramienta para el análisis estadístico?
 
@@ -59,17 +81,6 @@ print(
         
       """)
     
-print(
-      """
-      ¿Qué es Numpy?
-          --> Librería para arreglar números.
-          --> Maneja diferentes tipos de datos.
-          --> Cambia, crea, adjunta y elimina.
-          --> Necesario para Data Science
-              --> Operaciones matematicas sobre lo que existe.
-              --> Es rápido y simple de usar.
-              """)
-
 ##########################################################################################
 
 import pandas as pd
@@ -78,18 +89,6 @@ import pandas as pd
 ## Los diccionarios deben contener el mismo número de "values"
 
 ## 1ra Forma
-
-# imc = peso / estatura ** 2
-
-clase = {'semestre':['cuarto', 'cuarto', 'sexto', 'sexto'],
-         'sexo':['hombre', 'hombre', 'mujer', 'mujer'],
-         'edad':[21, 23, 21, 24],
-         'estatura':[1.60, 1.65, 1.50, 1.75]}
-
-usuarios = pd.DataFrame(clase)
-print(usuarios)
-
-## 2da Forma
 nomb = ['Sutano', 'Perengano', 'Fulanita', 'Sutanita']
 seme = ['cuarto', 'cuarto', 'sexto', 'sexto']
 sexo = ['hombre', 'hombre', 'mujer', 'mujer']
@@ -104,30 +103,95 @@ print(comprimido)
 
 clase = dict(comprimido)
 
-usuarios = pd.DataFrame(clase)
-print(usuarios)
+clase = pd.DataFrame(clase)
+print(clase)
+
+## 2da Forma
+
+clase = {'Semestre':['cuarto', 'cuarto', 'sexto', 'sexto'],
+         'Sexo':['hombre', 'hombre', 'mujer', 'mujer'],
+         'Edad':[21, 23, 21, 24],
+         'Estatura':[1.60, 1.65, 1.50, 1.75],
+         'Nombre':['Sutano', 'Perengano', 'Fulanita', 'Sutanita']}
+
+clase = pd.DataFrame(clase)
+print(clase)
 
 ## Crear nueva(s) columna(s)
-usuarios['Universidad'] = ['UNAM', 'UVM', 'UNAM', 'De la Vida'] 
-print(usuarios)
+clase['Universidad'] = ['UNAM', 'UVM', 'UNAM', 'De la Vida'] 
+print(clase)
 
 peso = [70, 80, 65, 55]
-usuarios['Peso'] = peso
-print(usuarios)
+clase['Peso'] = peso
+print(clase)
 
-usuarios['Deporte'] = ['Correr', 'Nadar', 'Trotar', 'Brincar']
+clase['Deporte'] = ['Correr', 'Nadar', 'Trotar', 'Brincar']
 
 ## Colocar Índice
-usuarios.index = [1, 2, 3, 4]
-print(usuarios)
+clase.index = ['Su', 'Pe', 'Fu', 'Sut'] # Iniciales en clase
+print(clase)
 
 ## Cambiar a propiedad de categoría las categorías
-usuarios.Sexo = usuarios.Sexo.astype('category')
-usuarios.Deporte = usuarios.Deporte.astype('category')
+clase.Sexo = clase.Sexo.astype('category')
+clase.Deporte = clase.Deporte.astype('category')
+clase.Universidad = clase.Universidad.astype('category')
 
-usuarios.info()
+clase.info()
 
-usuarios['IMC'] = usuarios['Peso']/usuarios['Estatura']**2
+### Index y Selección de Datos
+# Corchetes Rectos
+# Métodos Avanzados = "*.loc"  "*.iloc"
+clase['Edad']
+clase['Estatura']
+clase['Deporte']
+clase['Nombre']
+
+type(clase['Edad'])
+type(clase['Estatura'])
+type(clase['Deporte'])
+type(clase['Nombre'])
+
+clase[['Edad']]
+clase[['Estatura']]
+clase[['Deporte']]
+clase[['Nombre']]
+
+type(clase[['Edad']])
+type(clase[['Estatura']])
+type(clase[['Deporte']])
+type(clase[['Nombre']])
+
+clase[['Peso', 'Categoría_IMC']]
+
+clase[1:3]
+
+## Método "*.loc"
+# Filas
+clase.loc['Pe']
+clase.loc[['Pe']]
+clase.loc[['Pe', 'Fu', 'Sut']]
+# Filas y Columnas
+clase.loc[[1, 2, 3], ['Peso', 'Categoría_IMC']]
+#Todas las Filas
+clase.loc[:, ['Peso', 'Categoría_IMC']]
+
+## Método "*.iloc"
+# Filas
+clase.iloc[1]
+clase.iloc[[1]]
+clase.iloc[[1, 2, 3]]
+# Filas y Columnas
+clase.iloc[[1, 2, 3], [6, 9]]
+#Todas las Filas
+clase.iloc[:, [6, 9]]
+
+import numpy as np
+
+### Nueva columna
+
+# imc = peso / estatura ** 2
+
+clase['IMC'] = clase['Peso'] / clase['Estatura'] ** 2
 
 ## Nueva columna de Clasificación de Índice de Masa Corporal
 #        <16.00 -- Infrapeso: Delgadez Severa
@@ -139,26 +203,93 @@ usuarios['IMC'] = usuarios['Peso']/usuarios['Estatura']**2
 # 35.00 - 40.00 -- Obeso: Tipo II
 #        >40.00 -- Obeso: Tipo III
 
-import numpy as np
-
-## Operadores Booleanos
-usuarios['IMC'] < 18.50
-np.logical_and(usuarios['IMC'] > 18.50, usuarios['IMC'] < 24.99)
-np.logical_and(usuarios['IMC'] > 25., usuarios['IMC'] < 29.99)
-usuarios['IMC'] > 30.
-
 ## Filtar en toda la base de datos
-usuarios[usuarios['IMC'] < 18.50]
-usuarios[np.logical_and(usuarios['IMC'] > 18.50, usuarios['IMC'] < 24.99)]
-usuarios[np.logical_and(usuarios['IMC'] > 25., usuarios['IMC'] < 29.99)]
-usuarios[usuarios['IMC'] > 30.]
+infrapeso = clase[clase['IMC'] < 18.50]
+normal = clase[np.logical_and(clase['IMC'] > 18.50, clase['IMC'] < 24.99)]
+sobrepeso = clase[np.logical_and(clase['IMC'] > 25., clase['IMC'] < 29.99)]
+obeso = clase[clase['IMC'] > 30.]
 
-cat_imc = {'Infrapeso':usuarios['IMC'] < 18.50,
-           'Normal':np.logical_and(usuarios['IMC'] > 18.50, usuarios['IMC'] < 24.99),
-           'Sobrepeso':np.logical_and(usuarios['IMC'] > 25., usuarios['IMC'] < 29.99),
-           'Obeso':usuarios['IMC'] > 30.}
+df = infrapeso.assign(Categoría_IMC = 'Infrapeso')
+df1 = normal.assign(Categoría_IMC = 'Normal').append(df)
+df2 = sobrepeso.assign(Categoría_IMC = 'Sobrepeso').append(df1)
+clase = obeso.assign(Categoría_IMC = 'Obeso').append(df2)
 
-usuarios = usuarios.assign(Categoría_IMC = cat_imc)
+clase.Categoría_IMC = clase.Categoría_IMC.astype('category')
+
+## Ordenar por Edad
+#clase = clase.sort_values('Edad')
+
+## Exportar a CSV
+clase.to_csv('Clase_Anaconda.csv', sep=',')
+
+## Exportar a Excel
+clase.to_excel('Clase_Anaconda.xls')
+clase.to_excel('Clase_Anaconda.xlsx')
+
+
+## Importar archivo CSV
+clase = pd.read_csv('Clase_Anaconda.csv', sep=',')
+
+## Bucle For
+clase = pd.read_csv('Clase_Anaconda.csv', sep=',', index_col=0)
+
+for val in clase:
+    print(val)
+
+for sujeto, valores in clase.iterrows():
+    print(sujeto)
+    print(valores)
+
+for sujeto, valores in clase.iterrows():
+    print(sujeto + ': ' + valores['Nombre'])
+
+## Agregar columna con For
+## Y función "*.apply()"
+for sujeto, valores in clase.iterrows():
+    clase.loc[sujeto, 'No._Letras'] = len(valores['Nombre'])
+print(clase)
+
+clase['No. Letras'] = clase['Nombre'].apply(len)
+print(clase)
+
+clase = clase.drop('No._Letras', axis=1)
+
+## Índices y Columnas
+type(clase)
+
+clase.shape
+
+clase.columns
+
+type(clase.columns)
+
+clase.index
+
+clase.head()
+clase.head(2)
+
+clase.tail()
+clase.tail(2)
+
+clase.info()
+
+#### Graficar lo que se tenga que graficar
+import matplotlib.pyplot as plt
+
+edades = clase['Edad'].values
+plt.plot(edades)
+plt.show()
+
+edades1 = clase['Edad']
+edades1.plot()
+plt.show()
+
+clase.loc[:, ['IMC', 'Peso']].plot()
+
+
+
+
+
 
 
 ###########################################################################################

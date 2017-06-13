@@ -37,7 +37,7 @@ conda search -f python
 conda list
 
 #### Instalar paquetes en tu ambiente
-conda install spyder pandas scipy matplotlib jupyter anaconda-navigator openpyxl xlsxwriter pip openpyxl scikit-learn bokeh numba scipy sympy h2o h2o-py statsmodels numpy rstudio seaborn xlrd
+conda install spyder pandas scipy matplotlib jupyter anaconda-navigator openpyxl xlsxwriter pip openpyxl scikit-learn bokeh numba scipy sympy h2o h2o-py statsmodels numpy rstudio seaborn xlrd xlwt
 
 #### Actualizar paquete especifico
 conda update spyder pandas scipy matplotlib jupyter anaconda-navigator openpyxl xlsxwriter pip openpyxl scikit-learn
