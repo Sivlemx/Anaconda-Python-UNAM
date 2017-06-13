@@ -1,5 +1,5 @@
 ,Edad,Estatura,Nombre,Semestre,Sexo,Universidad,Peso,Deporte,IMC,Categoría_IMC
-Su,21,1.6,Sutano,cuarto,hombre,UNAM,70,Correr,27.343749999999996,Sobrepeso
-Pe,23,1.65,Perengano,cuarto,hombre,UVM,80,Nadar,29.384756657483933,Sobrepeso
-Fu,21,1.5,Fulanita,sexto,mujer,UNAM,65,Trotar,28.88888888888889,Sobrepeso
-Sut,24,1.75,Sutanita,sexto,mujer,De la Vida,55,Brincar,17.959183673469386,Infrapeso
+Su,21,1.6,Sutano,cuarto,Hombre,UNAM,70,Correr,27.343749999999996,Sobrepeso
+Pe,23,1.65,Perengano,cuarto,Hombre,UVM,80,Nadar,29.384756657483933,Sobrepeso
+Fu,21,1.5,Fulanita,sexto,Mujer,UNAM,65,Trotar,28.88888888888889,Sobrepeso
+Sut,24,1.75,Sutanita,sexto,Mujer,De la Vida,55,Brincar,17.959183673469386,Infrapeso

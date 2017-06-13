@@ -1,5 +1,6 @@
 # Python Zen
 print("""
+          -->  Python Zen  <--
     Bello es mejor que feo.
     Explícito es mejor que implícito.
     Simple es mejor que complejo.
@@ -109,7 +110,7 @@ print(clase)
 ## 2da Forma
 
 clase = {'Semestre':['cuarto', 'cuarto', 'sexto', 'sexto'],
-         'Sexo':['hombre', 'hombre', 'mujer', 'mujer'],
+         'Sexo':['Hombre', 'Hombre', 'Mujer', 'Mujer'],
          'Edad':[21, 23, 21, 24],
          'Estatura':[1.60, 1.65, 1.50, 1.75],
          'Nombre':['Sutano', 'Perengano', 'Fulanita', 'Sutanita']}
@@ -273,6 +274,62 @@ clase.tail(2)
 
 clase.info()
 
+### Función Groupby
+clase['Sexo']
+clase.groupby('Sexo').mean()
+
+#### Estadística Descriptiva
+print("""
+      Estadística Descriptiva:
+          
+          “Es el estudio que incluye la obtención, organización, 
+          presentación y descripción de información numérica”. 
+""")
+
+## Medidas de Tendencia Central = media, mediana, moda
+clase[clase['Sexo'] == 'Mujer']['Estatura'].mean() # Media
+clase[clase['Sexo'] == 'Mujer']['Estatura'].median() # Mediana
+clase[clase['Sexo'] == 'Mujer']['Estatura'].mode() # Moda
+clase.groupby('Sexo').mean()
+clase.groupby('Sexo').median()
+clase.groupby('Sexo').mode()
+
+## Medidas de Dispersión = Rango, Desviación Estándar, Varianza
+clase[clase['Sexo'] == 'Mujer']['Estatura'].max() # Máximo
+clase[clase['Sexo'] == 'Mujer']['Estatura'].min() # Mínimo
+clase[clase['Sexo'] == 'Mujer']['Estatura'].std() # Desviación Estándar
+clase[clase['Sexo'] == 'Mujer']['Estatura'].var() # Varianza
+clase.groupby('Sexo').max()
+clase.groupby('Sexo').min()
+clase.groupby('Sexo').std()
+clase.groupby('Sexo').var()
+
+clase[clase['Sexo'] == 'Mujer']['Estatura'].sem() # Error Estándar
+clase.groupby('Sexo').sem()
+
+clase[clase['Sexo'] == 'Mujer'].describe()
+clase.groupby('Sexo').describe()
+
+clase.describe()
+
+#############################################################
+#### Análisis Cualitativo
+# Factores e individuales
+clase['Sexo'].unique()
+
+# Descriptiva por categoría
+clase['Sexo'].describe()
+
+# Observando índices y columnas
+clase.axes
+
+# Filtrando por categorías
+mujeres = clase[clase['Sexo'] == 'Mujer']
+hombres = clase[clase['Sexo'] == 'Hombre']
+
+mujeres.describe()
+hombres.describe()
+
 #### Graficar lo que se tenga que graficar
 import matplotlib.pyplot as plt
 
@@ -286,19 +343,26 @@ plt.show()
 
 clase.loc[:, ['IMC', 'Peso']].plot()
 
+pd.plotting.scatter_matrix(clase[['Peso', 'Estatura', 'IMC']])
 
+clase.groupby('Sexo').boxplot()
 
-
-
-
+clase.groupby('Sexo')['Peso'].describe()
 
 ###########################################################################################
+### Esatadística Inferencial
+import scipy.stats as sps
+# https://docs.scipy.org/doc/scipy/reference/stats.html#module-scipy.stats
+
+peso_mujer = clase[clase['Sexo'] == 'Mujer']['Peso']
+peso_hombre = clase[clase['Sexo'] == 'Hombre']['Peso']
+sps.ttest_ind(peso_mujer, peso_hombre)
 
 
 #### Base de datos "iris" ############################################################
 from urllib.request import urlretrieve
 
-url = 'https://github.com/Sivlemx/Anaconda-Python-UNAM'
+url = 'https://raw.githubusercontent.com/Sivlemx/Anaconda-Python-UNAM/master/iris.csv'
 urlretrieve(url, 'iris.csv')
 iris_csv = 'iris.csv'
 print(iris_csv)
@@ -308,7 +372,7 @@ df_csv = pd.read_csv(iris_csv, sep=',')
 print(df_csv)
 print(type(df_csv))
 
-url = 'https://github.com/Sivlemx/Anaconda-Python-UNAM'
+url = 'https://github.com/Sivlemx/Anaconda-Python-UNAM/blob/master/iris.xlsx'
 urlretrieve(url, 'iris.xlsx')
 iris_xlsx = 'iris.xlsx'
 print(iris_xlsx)
@@ -363,6 +427,37 @@ print(df1['name'])
 
 print(df1['name'].unique())
 #########################################################################################
+#### Line Plot
+df1.plot(x='sepal_length', y='sepal_width')
+plt.show()
+
+#### Scatter Plot
+df1.plot(x='sepal_length', y='sepal_width', kind='scatter')
+plt.xlabel('Ancho de Sepalo (cm)')
+plt.ylabel('Largo de Sepalo (cm)')
+plt.show()
+
+#### Boxplot
+df1.plot(y='sepal_length', kind='box')
+plt.ylabel('Largo de Sepalo (cm)')
+plt.show()
+
+#### Histograma
+df1.plot(y='sepal_length', kind='hist')
+plt.xlabel('Ancho de Sepalo (cm)')
+plt.show()
+
+#### Histograma
+df1.plot(y='sepal_length', kind='hist', bins=30, range=(4,8), normed=True)
+plt.xlabel('Ancho de Sepalo (cm)')
+plt.show()
+
+
+
+
+
+
+
 #### Estadística Descriptiva
 print("""
       Estadística Descriptiva:
