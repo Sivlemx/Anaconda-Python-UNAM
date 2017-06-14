@@ -461,6 +461,7 @@ ax = clase[clase['Sexo'] == 'Mujer'].plot.scatter(x='Peso', y='Estatura', color=
 clase[clase['Sexo'] == 'Hombre'].plot.scatter(x='Peso', y='Estatura', color='Blue', label='Hombres', ax=ax)
 
 help(pd.DataFrame.boxplot)
+
 clase.boxplot('Peso', 'Sexo', grid=False)
 
 clase.groupby('Sexo')['Peso'].describe()
