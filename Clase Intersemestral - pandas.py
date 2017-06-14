@@ -460,12 +460,10 @@ clase.plot.scatter(x='Peso', y='Estatura')
 ax = clase[clase['Sexo'] == 'Mujer'].plot.scatter(x='Peso', y='Estatura', color='Red', label='Mujeres')
 clase[clase['Sexo'] == 'Hombre'].plot.scatter(x='Peso', y='Estatura', color='Blue', label='Hombres', ax=ax)
 
-
-clase.loc[:, ['IMC', 'Peso']].plot()
+help(pd.DataFrame.boxplot)
+clase.boxplot('Peso', 'Sexo', grid=False)
 
 pd.plotting.scatter_matrix(clase[['Peso', 'Estatura', 'IMC']])
-
-clase.groupby('Sexo').boxplot()
 
 clase.groupby('Sexo')['Peso'].describe()
 ######################################################################################
