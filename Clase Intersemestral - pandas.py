@@ -283,9 +283,9 @@ clase.info()
 
 
 ## Exportar a CSV
-clase.to_csv('Clase_Anaconda.csv', sep=',')
-clase.to_csv('Clase_Anaconda1.csv', sep='\t')
-clase.to_csv('Clase_Anaconda2.csv', sep=';')
+clase.to_csv('Clase_Anaconda.csv', sep=',', encoding='utf-8')
+clase.to_csv('Clase_Anaconda1.csv', sep='\t', encoding='utf-8')
+clase.to_csv('Clase_Anaconda2.csv', sep=';', encoding='utf-8')
 
 
 ## Exportar a TXT
