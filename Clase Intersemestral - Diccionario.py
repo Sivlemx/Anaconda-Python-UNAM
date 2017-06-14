@@ -9,7 +9,8 @@ ind_alb = paises.index("albania")
 pop[ind_alb]
 
 ### Diccionario
-mundo = { "Afganistan":30.55, "Albania":2.77, "Algeria":39.21 }
+mundo = { "Afganistan":30.55, "Albania":2.77,
+         "Algeria":39.21 }
 
 mundo['Albania']
 

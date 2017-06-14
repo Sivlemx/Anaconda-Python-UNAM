@@ -1,3 +1,5 @@
+## https://github.com/Sivlemx/Anaconda-Python-UNAM
+
 # Python Zen
 print("""
           -->  Python Zen  <--
@@ -86,6 +88,8 @@ print(
 
 import pandas as pd
 
+import numpy as np
+
 #### DataFrame desde cero
 ## Los diccionarios deben contener el mismo número de "values"
 
@@ -108,28 +112,31 @@ clase = pd.DataFrame(clase)
 print(clase)
 
 ## 2da Forma
+peso = [67, 56, 69, 55, 65, 51, 47, 90, 52, 56, 82, 104, 89, 65, 60]
+estatura = [1.74, 1.60, 1.71, 1.60, 1.70, 1.60, 1.53, 1.73, 1.60, 1.60, 1.76, 1.80, 1.78, 1.72, 1.52]
 
-clase = {'Semestre':['cuarto', 'cuarto', 'sexto', 'sexto'],
-         'Sexo':['Hombre', 'Hombre', 'Mujer', 'Mujer'],
-         'Edad':[21, 23, 21, 24],
-         'Estatura':[1.60, 1.65, 1.50, 1.75],
-         'Nombre':['Sutano', 'Perengano', 'Fulanita', 'Sutanita']}
+
+clase = {'Semestre':['Sexto', 'Sexto', 'Sexto', 'Sexto', 'Cuarto', 'Egresada', 'Segundo', 'Cuarto', 'Sexto', 'Sexto', 'Titulado', 'Doctorante', 'Egresada', 'Sexto', 'Egresada'],
+         'Sexo':['Mujer', 'Mujer', 'Hombre', 'Mujer', 'Hombre', 'Mujer', 'Mujer', 'Hombre', 'Mujer', 'Mujer', 'Hombre', 'Macho', 'Mujer', 'Hombre', 'Hembra'],
+         'Edad':[23, 20, 21, 22, 25, 23, 19, 20, 21, 20, 25, 34, 22, 21, 24],
+         'Estatura':[1.74, 1.60, 1.71, 1.60, 1.70, 1.60, 1.53, 1.73, 1.60, 1.60, 1.76, 1.80, 1.60, 1.72, 1.52],
+         'Nombre':['Gisela', 'Valeria', 'Alfredo', 'Gabriela', 'Pako', 'Samantha', 'Valeria', 'Mario', 'Elizabeth', 'Sam', 'Christian', 'Javier', 'Leslie', 'Rodrigo', 'Yuna']}
 
 clase = pd.DataFrame(clase)
 print(clase)
 
 ## Crear nueva(s) columna(s)
-clase['Universidad'] = ['UNAM', 'UVM', 'UNAM', 'De la Vida'] 
+clase['Universidad'] = ['UNAM', 'UNAM', 'UNAM', 'UNAM','UNAM','UNAM','UNAM','UNAM','UNAM','UNAM','UNAM','UNAM','UNAM','UNAM','UNAM'] 
 print(clase)
 
-peso = [70, 80, 65, 55]
+peso = [67, 56, 69, 55, 65, 51, 47, 90, 52, 56, 82, 104, 55, 65, 60]
 clase['Peso'] = peso
 print(clase)
 
-clase['Deporte'] = ['Correr', 'Nadar', 'Trotar', 'Brincar']
+clase['Deporte'] = ['Natación', 'Volley', 'Basquetball', 'Tae Kwon Do', 'Soccer', 'Soccer', 'Basquetball', 'Basquetball', 'Natación', 'Tennis', 'Hapkido', 'Hapkido', np.nan, 'Basquetball', 'Tocho']
 
 ## Colocar Índice
-clase.index = ['Su', 'Pe', 'Fu', 'Sut'] # Iniciales en clase
+clase.index = ['GB', 'VC', 'AL', 'GC', 'PT', 'SA', 'VG', 'IG', 'EN', 'SM', 'CD', 'JV', 'LZ', 'RG', 'ID'] # Iniciales en clase
 print(clase)
 
 ## Cambiar a propiedad de categoría las categorías

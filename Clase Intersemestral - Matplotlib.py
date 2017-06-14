@@ -14,8 +14,8 @@ plt.show()
 ### Plot Histogram
 help(plt.hist)
 
-estatura = [1.60, 1.65, 1.50, 1.75]
-plt.hist(estatura, bins=3)
+estatura = [1.74, 1.60, 1.71, 1.60, 1.70, 1.60, 1.53, 1.73, 1.60, 1.60, 1.76, 1.80, 1.78, 1.72, 1.52]
+plt.hist(estatura, bins=10)
 plt.show()
 
 ### Customizar las gráficas
