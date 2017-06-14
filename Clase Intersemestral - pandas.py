@@ -463,9 +463,10 @@ clase[clase['Sexo'] == 'Hombre'].plot.scatter(x='Peso', y='Estatura', color='Blu
 help(pd.DataFrame.boxplot)
 clase.boxplot('Peso', 'Sexo', grid=False)
 
+clase.groupby('Sexo')['Peso'].describe()
+
 pd.plotting.scatter_matrix(clase[['Peso', 'Estatura', 'IMC']])
 
-clase.groupby('Sexo')['Peso'].describe()
 ######################################################################################
 import seaborn as sns
 # http://seaborn.pydata.org/index.html
