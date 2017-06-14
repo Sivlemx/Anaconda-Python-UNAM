@@ -198,9 +198,32 @@ clase.iloc[:, [6, 7]]
 ## Ejercicio
 # Utilizar = *.loc[Edad, Estatura, Peso] de JV, SA, CD
 # En 2 tipos = Series de Tiempo y DataFrame
+clase.loc[['JV', 'SA', 'CD'], ['Edad', 'Estatura', 'Peso']]
+clase.loc[['JV', 'SA', 'CD'], :]
+clase.loc[:, 'Edad']
+clase.loc[:, 'Estatura']
+clase.loc[:, 'Peso']
+
+clase.loc[:, ['Edad']]
+clase.loc[:, ['Estatura']]
+clase.loc[:, ['Peso']]
+
+clase.columns
+clase.index
+clase.axes
 
 # Utilizar = *.iloc[Edad, Estatura, Peso] de JV, SA, CD
 # En 2 tipos = Series de Tiempo y DataFrame
+
+clase.iloc[[11, 5, 10], [0, 1, 6]]
+clase.iloc[[11, 5, 10], :]
+clase.iloc[:, 0]
+clase.iloc[:, 1]
+clase.iloc[:, 6]
+
+clase.iloc[:, [0]]
+clase.iloc[:, [1]]
+clase.iloc[:, [6]]
 
 
 
@@ -235,6 +258,7 @@ clase = obeso.assign(Categoría_IMC = 'Obeso').append(df2)
 
 clase.Categoría_IMC = clase.Categoría_IMC.astype('category')
 
+clase.info()
 ## Ordenar por Edad
 clase = clase.sort_values('Edad')
 
@@ -260,6 +284,9 @@ clase.info()
 
 ## Exportar a CSV
 clase.to_csv('Clase_Anaconda.csv', sep=',')
+clase.to_csv('Clase_Anaconda1.csv', sep='\t')
+clase.to_csv('Clase_Anaconda2.csv', sep=';')
+
 
 ## Exportar a TXT
 clase.to_csv('Clase_Anaconda.txt', sep=',')
@@ -267,17 +294,19 @@ clase.to_csv('Clase_Anaconda.txt', sep=',')
 ## Exportar a Excel
 clase.to_excel('Clase_Anaconda.xls')
 clase.to_excel('Clase_Anaconda.xlsx')
-
+##########################################################
 
 ## Importar archivo CSV
 clase = pd.read_csv('Clase_Anaconda.csv', sep=',')
+
+help(pd.read_csv)
 
 clase = pd.read_csv('Clase_Anaconda.csv', sep=',', index_col=0)
 
 ## Bucle For
 
-for val in clase:
-    print(val)
+for valores in clase:
+    print(valores)
 
 for sujeto, valores in clase.iterrows():
     print(sujeto)
@@ -316,7 +345,9 @@ clase = clase.drop('No._Letras', axis=1)
 
 
 clase['Letras UNAM'] = clase['Universidad'].apply(len)
-clase = clase.drop('# Letras UNAM', axis=1)
+clase = clase.drop('Letras UNAM', axis=1)
+clase = clase.drop(['No._Letras', '# Letras en el Nombre'], axis=1)
+
 
 ################################################################
 
@@ -357,7 +388,7 @@ clase[clase['Sexo'] == 'Mujer'].corr()
 # 2.- Obtener la desviación estandar de la Edad y el IMC de solo los hombres
 # 3.- Obtener el mínimo de la Edad y el IMC de solo los hombres
 # 4.- Obtener el máximo de la Edad y el IMC de solo los hombres
-# 2.- Obtener la correlación de la Edad y el IMC de solo los hombres
+# 5.- Obtener la correlación de la Edad y el IMC de solo los hombres
 
 
 ### Función Groupby

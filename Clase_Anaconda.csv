@@ -1,16 +1,16 @@
 ,Edad,Estatura,Nombre,Semestre,Sexo,Universidad,Peso,Deporte,IMC,Categoría_IMC
-VG,19,1.53,Valeria,Segundo,Mujer,UNAM,47,Basquetball,20.077747874749033,Normal
+VG,19,1.53,Valeria,Segundo,Mujer,UNAM,47,Basquetball,20.07774787474903,Normal
 IG,20,1.73,Mario,Cuarto,Hombre,UNAM,90,Basquetball,30.071168431955627,Obeso
-VC,20,1.6,Valeria,Sexto,Mujer,UNAM,56,Volley,21.875,Normal
-SM,20,1.6,Sam,Sexto,Mujer,UNAM,56,Tennis,21.875,Normal
-AL,21,1.71,Alfredo,Sexto,Hombre,UNAM,69,Basquetball,23.597004206422486,Normal
-EN,21,1.6,Elizabeth,Sexto,Mujer,UNAM,52,Natación,20.3125,Normal
-RG,21,1.72,Rodrigo,Sexto,Hombre,UNAM,65,Basquetball,21.97133585722012,Normal
-GC,22,1.6,Gabriela,Sexto,Mujer,UNAM,55,Tae Kwon Do,21.484375,Normal
-LZ,22,1.6,Leslie,Egresada,Mujer,UNAM,55,,21.484375,Normal
+VC,20,1.6,Valeria,Sexto,Mujer,UNAM,56,Volley,21.874999999999996,Normal
+SM,20,1.6,Sam,Sexto,Mujer,UNAM,56,Tennis,21.874999999999996,Normal
+AL,21,1.71,Alfredo,Sexto,Hombre,UNAM,69,Basquetball,23.59700420642249,Normal
+EN,21,1.6,Elizabeth,Sexto,Mujer,UNAM,52,Natación,20.312499999999996,Normal
+RG,21,1.72,Rodrigo,Sexto,Hombre,UNAM,65,Basquetball,21.971335857220122,Normal
+GC,22,1.6,Gabriela,Sexto,Mujer,UNAM,55,Tae Kwon Do,21.484374999999996,Normal
+LZ,22,1.6,Leslie,Egresada,Mujer,UNAM,55,,21.484374999999996,Normal
 GB,23,1.74,Gisela,Sexto,Mujer,UNAM,67,Natación,22.12973972783723,Normal
-SA,23,1.6,Samantha,Egresada,Mujer,UNAM,51,Soccer,19.921875,Normal
-ID,24,1.52,Yuna,Egresada,Hembra,UNAM,60,Tocho,25.969529085872573,Sobrepeso
+SA,23,1.6,Samantha,Egresada,Mujer,UNAM,51,Soccer,19.921874999999996,Normal
+ID,24,1.52,Yuna,Egresada,Mujer,UNAM,60,Tocho,25.969529085872576,Sobrepeso
 CD,25,1.76,Christian,Titulado,Hombre,UNAM,82,Hapkido,26.47210743801653,Sobrepeso
 PT,25,1.7,Pako,Cuarto,Hombre,UNAM,65,Soccer,22.49134948096886,Normal
-JV,34,1.8,Javier,Doctorante,Macho,UNAM,104,Hapkido,32.09876543209877,Obeso
+JV,34,1.8,Javier,Doctorante,Hombre,UNAM,104,Hapkido,32.098765432098766,Obeso
