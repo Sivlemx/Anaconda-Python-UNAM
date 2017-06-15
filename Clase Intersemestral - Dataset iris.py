@@ -104,6 +104,7 @@ df1[df1['name'] == 'versicolor']['sepal_length'].var() # Varianza
 
 df1[df1['name'] == 'versicolor']['sepal_length'].sem() # Error Estándar
 
+df1[df1['name'] == 'versicolor'].corr()
 
 df1[df1['name'] == 'versicolor'].describe()
 
@@ -129,15 +130,23 @@ df1[df1['name'] == 'setosa'].boxplot()
 df1[df1['name'] == 'versicolor'].boxplot()
 df1[df1['name'] == 'virginica'].boxplot()
 
-### Plotear datos
-import matplotlib.pyplot as plt
-
 pd.plotting.scatter_matrix(df1[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']])
-df1[df1['name'] == 'versicolor']['sepal_length'].plot()
-df1[df1['name'] == 'versicolor']['sepal_length']
-df1[df1['name'] == 'versicolor']['sepal_length']
-df1[df1['name'] == 'versicolor']['sepal_length']
-df1[df1['name'] == 'versicolor']['sepal_length']
+
+### Plotear datos
+media = df1.groupby('name')['sepal_length'].mean()
+error = df1.groupby('name')['sepal_length'].sem()
+media.plot.bar(yerr=error)
+
+errors = df1[df1['name'] == 'versicolor'].sem()
+
+df1[df1['name'] == 'versicolor'].plot()
+df1[df1['name'] == 'versicolor'].plot(kind='hist', normed=True, yerr=errors)
+df1[df1['name'] == 'versicolor'].plot(kind='bar')
+df1[df1['name'] == 'versicolor'].plot(kind='barh')
+df1[df1['name'] == 'versicolor'].plot(kind='box')
+df1[df1['name'] == 'versicolor'].plot(kind='kde')
+df1[df1['name'] == 'versicolor'].plot(kind='area')
+df1[df1['name'] == 'versicolor'].plot('sepal_length', 'petal_length', kind='scatter')
 
 df1[df1['name'] == 'versicolor'].plot.scatter('sepal_length', 'petal_length')
 
