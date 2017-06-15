@@ -295,13 +295,15 @@ clase.to_csv('Clase_Anaconda.txt', sep=',')
 clase.to_excel('Clase_Anaconda.xls')
 clase.to_excel('Clase_Anaconda.xlsx')
 ##########################################################
+import pandas as pd
+import numpy as np
 
 ## Importar archivo CSV
-clase = pd.read_csv('Clase_Anaconda.csv', sep=',')
+clase = pd.read_csv('Clase_Anaconda.csv', sep=',', encoding='utf-8')
 
 help(pd.read_csv)
 
-clase = pd.read_csv('Clase_Anaconda.csv', sep=',', index_col=0)
+clase = pd.read_csv('Clase_Anaconda.csv', sep=',', index_col=0, encoding='utf-8')
 
 ## Bucle For
 
@@ -407,7 +409,9 @@ clase.groupby('Sexo').sem()
 
 clase.groupby('Sexo').describe()
 
-clase.groupby('Sexo').corr()
+corr = clase.groupby('Sexo').corr()
+
+corr.to_csv('Correlación.csv', sep='\t')
 
 clase.describe()
 clase.corr()
@@ -437,11 +441,13 @@ edades = clase['Edad'].values
 
 plt.hist(edades)
 plt.hist(edades, 5)
-plt.hist(edades, 10)
+plt.hist(edades, 50)
 
 plt.plot(edades)
 plt.show()
 
+clase.corr()
+clase.var()
 x = clase['Peso'].values
 y = clase['Estatura'].values
 plt.scatter(x, y)
@@ -451,11 +457,17 @@ plt.show()
 edades1 = clase['Edad']
 
 edades1.plot.hist()
-edades1.plot.hist(alpha=0.5)
+edades1.plot.hist(alpha=0.5, color='DarkBlue')
 
 edades1.plot()
+plt.ylabel('Edades')
+plt.xlabel('Nombres de los participantes')
+plt.title('Edades\nClase Anaconda')
+plt.savefig('Edades.png')
 
 clase.plot.scatter(x='Peso', y='Estatura')
+
+
 
 ax = clase[clase['Sexo'] == 'Mujer'].plot.scatter(x='Peso', y='Estatura', color='Red', label='Mujeres')
 clase[clase['Sexo'] == 'Hombre'].plot.scatter(x='Peso', y='Estatura', color='Blue', label='Hombres', ax=ax)
@@ -478,6 +490,7 @@ sns.pairplot(clase, vars=['Peso', 'Estatura', 'IMC'], kind='reg', hue='Sexo')
 sns.lmplot(y='Peso', x='Estatura', data=clase)
 
 sns.stripplot(x='Peso', y='Estatura', hue='Sexo', data=clase)
+sns.plt.savefig('Grafica con seaborn.png')
 
 sns.stripplot(x='Categoría_IMC', y='IMC', hue='Sexo', data=clase)
 

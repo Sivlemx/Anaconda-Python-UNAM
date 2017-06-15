@@ -10,6 +10,7 @@ df_csv = pd.read_csv(iris_csv, sep=',')
 print(df_csv)
 print(type(df_csv))
 
+iris_dir = '/home/jvillanueva/MEGA/UNAM/Cursos Intersemestrales/Clase Anaconda Python'
 iris_xlsx = 'iris.xlsx'
 print(iris_xlsx)
 print(type(iris_xlsx))

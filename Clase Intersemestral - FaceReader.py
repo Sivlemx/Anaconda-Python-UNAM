@@ -17,6 +17,7 @@ dftiempo = pd.to_datetime(df.iloc[:, 0]).dt.time.to_frame().rename(columns={'Vid
 
 df1 = df.iloc[:, 1:11] 
 df1.info()
+df.columns
 
 df2 = df.iloc[:, -3:-2]
 df2.info()
@@ -47,8 +48,8 @@ df8 = df7.rename(columns={'Neutral':'Neutral',
                           'Valence':'Valencia',
                           'Heart Rate':'Frec Cardíaca',
                           'Arousal':'Activación'}) 
-
-sujeto1 = dftiempo.join(df8).dropna(how='any').set_index('Tiempo').assign(Sujeto='Suejto1')
+df8.info()
+sujeto1 = dftiempo.join(df8).dropna(how='any').set_index('Tiempo').assign(Sujeto='Sujeto1')
 sujeto1.info()
 
 sujeto1.to_csv('Sujeto1.csv', sep=',')
@@ -69,6 +70,7 @@ sujeto1.to_csv('Sujeto1.csv', sep=',')
 # 9.- Graficar las emociones con valencias negativas
 #       (La que mejor consideres y ¿Por qué esa gráfica?)
 
+sujeto1.columns
 
 sujeto1.iloc[:, 0:9].plot()
 
