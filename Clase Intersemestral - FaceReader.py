@@ -2,8 +2,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import scipy.stats as sps
-import statsmodels.api as sm
 
 sujeto = 'sujeto1.txt'
 
@@ -32,10 +30,13 @@ df4.info()
 df5 = df4.replace('FIND_FAILED', np.nan)
 df5.info()
 
-df6 = df5.replace('Unknown Heart Rate', np.nan).astype(float) 
+df6 = df5.replace('NotAnalyzed', np.nan)
 df6.info()
 
-df7 = df6.rename(columns={'Neutral':'Neutral',
+df7 = df6.replace('Unknown Heart Rate', np.nan).astype(float) 
+df7.info()
+
+df8 = df7.rename(columns={'Neutral':'Neutral',
                           'Happy':'Felicidad',
                           'Sad':'Tristeza',
                           'Angry':'Enojo',
@@ -47,15 +48,17 @@ df7 = df6.rename(columns={'Neutral':'Neutral',
                           'Heart Rate':'Frec Cardíaca',
                           'Arousal':'Activación'}) 
 
-sujeto1 = dftiempo.join(df7).dropna(how='any').set_index('Tiempo').assign(Sujeto='Suejto1')
+sujeto1 = dftiempo.join(df8).dropna(how='any').set_index('Tiempo').assign(Sujeto='Suejto1')
 sujeto1.info()
 
 sujeto1.to_csv('Sujeto1.csv', sep=',')
 
 #############################################################################
 # 1.- Trabajar a sujeto2 y sujeto3
-# 2.- Obtener los Descriptivos por sujeto de 1 por 1
-# 3.- Obtener los descriptivos por sujeto
-# 4.- 
+# 2.- Obtener los Descriptivos por sujeto y por emoción
+# 3.- Obtener los descriptivos por sujeto de todas las emociones
+# 4.- Graficar cada emoción
+# 5.- Graficar las emociones con valencias positivas
+# 6.- Graficar las emociones con valencias negativas
 
 sujeto1.iloc[:, 0:9].plot()
