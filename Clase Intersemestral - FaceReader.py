@@ -62,3 +62,16 @@ sujeto1.to_csv('Sujeto1.csv', sep=',')
 # 6.- Graficar las emociones con valencias negativas
 
 sujeto1.iloc[:, 0:9].plot()
+
+
+
+
+
+
+
+
+
+
+
+
+
