@@ -55,11 +55,20 @@ sujeto1.to_csv('Sujeto1.csv', sep=',')
 
 #############################################################################
 # 1.- Trabajar a sujeto2 y sujeto3
-# 2.- Obtener los Descriptivos por sujeto y por emoción
-# 3.- Obtener los descriptivos por sujeto de todas las emociones
-# 4.- Graficar cada emoción
-# 5.- Graficar las emociones con valencias positivas
-# 6.- Graficar las emociones con valencias negativas
+# 2.- Juntar las bases como apéndices.
+# 3.- Obtener los Descriptivos por sujeto y por emoción
+# 4.- Obtener los descriptivos por sujeto de todas las emociones
+# 5.- Obtener la correlación de pearson 
+#       por sujeto y por emoción
+# 6.- Obtener la correlación de pearson 
+#       por sujeto de todas las emociones
+# 7.- Graficar cada emoción
+#       (La que mejor consideres y ¿Por qué esa gráfica?)
+# 8.- Graficar las emociones con valencias positivas
+#       (La que mejor consideres y ¿Por qué esa gráfica?)
+# 9.- Graficar las emociones con valencias negativas
+#       (La que mejor consideres y ¿Por qué esa gráfica?)
+
 
 sujeto1.iloc[:, 0:9].plot()
 
