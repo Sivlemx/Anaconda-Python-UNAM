@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 ### Abrimos los txt
-dfsujeto1 = pd.read_csv('sujeto1.txt', sep='\t', header=6)
+dfsujeto1 = pd.read_csv('sujeto1.txt', sep='\t', header=6, encoding='utf-8')
 dfsujeto2 = pd.read_csv('sujeto2.txt', sep='\t', header=6)
 dfsujeto3 = pd.read_csv('sujeto3.txt', sep='\t', header=6)
 
@@ -20,6 +20,8 @@ dfemo3 = dfsujeto3.iloc[:, 1:11]
 dfcard1 = dfsujeto1.iloc[:, -3:-2]
 dfcard2 = dfsujeto2.iloc[:, -3:-2]
 dfcard3 = dfsujeto3.iloc[:, -3:-2]
+
+dfsujeto1.info()
 #############################################################################################
 ### Uniendo bases de Sujeto 1
 df1_sujeto1 = dfemo1.join(dfcard1)
@@ -105,8 +107,10 @@ df = sujeto1.append(sujeto2)
 sujetos = df.append(sujeto3)
 #####################################################################################################
 ### 3.- Obtener los Descriptivos por sujeto y por emoción
-neu_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Neutral']].describe()
-fel_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Felicidad']].describe()
+neu_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Neutral']].mean()
+fel_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Felicidad']].sum()
+
+
 tri_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Tristeza']].describe()
 eno_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Enojo']].describe()
 sor_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Sorpresa']].describe()
@@ -116,6 +120,9 @@ des_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Desprecio']].describe()
 val_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Valencia']].describe()
 act_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Activación']].describe()
 car_su1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Frec Cardíaca']].describe()
+
+sujeto1.describe()
+sujeto1.to_csv('Descritivo_Pac1.txt', sep=',')
 
 neu_su2 = sujetos[sujetos['Sujeto'] == 'Sujeto2'][['Neutral']].describe()
 fel_su2 = sujetos[sujetos['Sujeto'] == 'Sujeto2'][['Felicidad']].describe()
@@ -145,6 +152,9 @@ car_su3 = sujetos[sujetos['Sujeto'] == 'Sujeto3'][['Frec Cardíaca']].describe()
 desc_sujeto1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'].describe()
 desc_sujeto2 = sujetos[sujetos['Sujeto'] == 'Sujeto2'].describe()
 desc_sujeto3 = sujetos[sujetos['Sujeto'] == 'Sujeto3'].describe()
+
+sujeto1.describe()
+
 ######################################################################################################
 ### 5.- Obtener la correlación de pearson 
 ###       por sujeto y por emoción
@@ -189,10 +199,14 @@ corr_car_su3 = sujetos[sujetos['Sujeto'] == 'Sujeto3'][['Frec Cardíaca']].corr(
 corr_sujeto1 = sujetos[sujetos['Sujeto'] == 'Sujeto1'].corr()
 corr_sujeto2 = sujetos[sujetos['Sujeto'] == 'Sujeto2'].corr()
 corr_sujeto3 = sujetos[sujetos['Sujeto'] == 'Sujeto3'].corr()
+
+sujeto1.corr()
 #######################################################################################################
 ### 7.- Graficar cada emoción
 ###       (La que mejor consideres y ¿Por qué esa gráfica?)
+import matplotlib.pyplot as plt
 sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Neutral']].plot()
+plt.grid(False)
 sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Felicidad']].plot()
 sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Tristeza']].plot()
 sujetos[sujetos['Sujeto'] == 'Sujeto1'][['Enojo']].plot()
@@ -232,13 +246,39 @@ sujetos[sujetos['Sujeto'] == 'Sujeto3'][['Frec Cardíaca']].plot()
 ###       (La que mejor consideres y ¿Por qué esa gráfica?)
 sujetos[sujetos['Valencia'] > 0].plot()
 val_pos = sujetos[sujetos['Valencia'] > 0]
-val_pos.iloc[:, 0:9].plot()
+val_pos.iloc[:, ::2].plot()
 #########################################################################################
 ### 9.- Graficar las emociones con valencias negativas
 ###       (La que mejor consideres y ¿Por qué esa gráfica?)
 sujetos[sujetos['Valencia'] < 0].plot()
 val_neg = sujetos[sujetos['Valencia'] < 0]
-val_neg.iloc[:, 0:9].plot()
+val_neg.iloc[:, 0:10].plot()
+
+import seaborn as sns
+
+sns.stripplot(x='Sujeto', y='Felicidad', hue='Sujeto', data=sujetos, )
+
+sns.stripplot(x='Sujeto', y='Felicidad', hue='Sujeto', data=sujetos, jitter=True, split=True)
+
+fel = sujeto1[['Felicidad']]
+sor = sujeto1[['Sorpresa']]
+val = sujeto1[['Valencia']]
+
+peso = [67, 56, 69, 55, 65, 51, 47, 90, 52, 56, 82, 104, 89, 65, 60]
+peso1 = [63, 52, 64, 50, 60, 46, 42, 85, 34, 78, 90, 120, 78, 43, 34]
+
+ejex = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+etiquetax = ['GB', 'VC', 'AL', 'GC', 'PT', 'SA', 'VG', 'IG', 'EN', 'SM', 'CD', 'JV', 'LZ', 'RG', 'ID']
+
+import matplotlib.pyplot as plt
+
+plt.plot(peso, color='r', marker='o', label='Peso - Clase', linestyle='-.')
+plt.plot(peso1, color='g', marker='s', label='Peso - Otra Clase ', linestyle='--')
+plt.legend(loc='best')
+plt.grid(False)
+plt.xticks(ejex, etiquetax)
+plt.title('Grafica en clase')
+plt.savefig('Gráfica del peso de la clase Anaconda.png')
 
 
 
