@@ -1,3 +1,4 @@
 .spyproject/
 _config.yml
 .spyproject
+.spyproject/*
