@@ -1,3 +1,10 @@
+Curso: Introducción a Anaconda Python para Análisis de Datos (fácil y prático).
+======
+Fechas: 12 de Junio 2017 al 16 Junio 2017.
+-----------
+
+
+
 if estudiante in UNAM:
     conocimiento = asistencia + intersemestral
     for conocimiento in estudiante:
