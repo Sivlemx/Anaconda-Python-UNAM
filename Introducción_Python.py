@@ -44,15 +44,15 @@ print(numero)
 print(estatura)
 
 ## Entrada de datos  'sentencia "input()"'
-nombre = 'Chris'
-print('¿Cómo te llamas?')
+apodo = 'Javi Bebé'
+print('Yo me llamo', apodo)
 nombre = input()
 print('Yo me llamo', nombre)
 
-## Conversión de datos (en el Shell)
-int(1.76)
-str(25)
-float(10)
+## Conversión de datos
+int(1.80)
+str(35)
+float(7)
 
 # + = suma
 # - = resta
